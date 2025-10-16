@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    redirect()->route('hello');
+    return redirect()->route('dashboard');
 });
 
-Route::get('hello', function () {
-    return view('hello');
-})->name('hello');
+Route::get('dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+// Controller Routes
+Route::resource('posts', PostController::class);
